@@ -99,7 +99,7 @@
                         }
                     }
                 }
-
+ 
                 // merge
 
                 var geom = new THREE.Geometry()
@@ -112,8 +112,9 @@
 
                 // light
 
-                var light = new THREE.DirectionalLight(0xffffff);
-                light.position.set(-1, 1.5, 0.5);
+                //var light = new THREE.DirectionalLight(0xffffff);
+                var light = new THREE.PointLight( 0xff00f0, 5, 5 );
+                light.position.set(-1, 1.5, 0.01);
                 scene.add(light);
             }
 

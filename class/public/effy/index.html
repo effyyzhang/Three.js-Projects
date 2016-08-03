@@ -25,9 +25,9 @@
         <script src="js/third-party/threejs/controls/VRControls.js"></script>
         <script src="js/third-party/threejs/controls/DeviceOrientationControls.js"></script>
         <script src="js/third-party/threejs/controls/OrbitControls.js"></script>
-        
+
         <script src="js/third-party/TweenMax.min.js"></script>
-        
+
         <script src="js/utils/helpers.js"></script>
 
         <script>
@@ -78,7 +78,7 @@
             }
 
             function setup() {
-                
+
                 // central object
 
                 var geometry = new THREE.TorusKnotGeometry(0.64, 0.25, 25, 6);
@@ -88,32 +88,33 @@
 
                 // cubes
 
-                var group = new THREE.Object3D();
-                for (var _x = -3; _x <= 3; _x++) {
-                    for (var _y = -3; _y <= 3; _y++) {
-                        for (var _z = -3; _z <= 3; _z++) {
-                            var geo = new THREE.BoxGeometry(.1, .1, .1, 1, 1, 1)
-                            var mesh = new THREE.Mesh(geo, material)
-                            mesh.position.set(_x, _y, _z)
-                            group.add(mesh);
-                        }
-                    }
-                }
+                // var group = new THREE.Object3D();
+                // for (var _x = -3; _x <= 3; _x++) {
+                //     for (var _y = -3; _y <= 3; _y++) {
+                //         for (var _z = -3; _z <= 3; _z++) {
+                //             var geo = new THREE.BoxGeometry(.1, .1, .1, 1, 1, 1)
+                //             var mesh = new THREE.Mesh(geo, material)
+                //             mesh.position.set(_x, _y, _z)
+                //             group.add(mesh);
+                //         }
+                //     }
+                // }
 
                 // merge
 
-                var geom = new THREE.Geometry()
-                for (var i = 0; i < group.children.length; i++) {
-                    group.children[i].updateMatrix();
-                    geom.merge(group.children[i].geometry, group.children[i].matrix);
-                }
-                group = new THREE.Mesh(geom, material);
-                scene.add(group)
+                // var geom = new THREE.Geometry()
+                // for (var i = 0; i < group.children.length; i++) {
+                //     group.children[i].updateMatrix();
+                //     geom.merge(group.children[i].geometry, group.children[i].matrix);
+                // }
+                // group = new THREE.Mesh(geom, material);
+                // scene.add(group)
 
                 // light
 
-                var light = new THREE.DirectionalLight(0xffffff);
-                light.position.set(-1, 1.5, 0.5);
+                //var light = new THREE.DirectionalLight(0xffffff);
+                var light = new THREE.PointLight( 0xff000f, 10, 10 );
+                light.position.set(-1, 1, 0.5);
                 scene.add(light);
             }
 
